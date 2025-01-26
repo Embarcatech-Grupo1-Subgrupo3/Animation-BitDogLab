@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "pico/stdlib.h"
 #include "hardware/clocks.h"
 #include "ws2818b.pio.h"
@@ -11,6 +12,8 @@
 // configuração do teclado
 #define ROWS 4
 #define COLUMNS 4
+  
+int cycles=0;   
 
 const unsigned int row_pins[ROWS] = {16, 17, 18, 19};     // pinos para linhas
 const unsigned int column_pins[COLUMNS] = {20, 28, 8, 9}; // pinos para colunas
@@ -68,6 +71,7 @@ char read_key()
                     ;
                 gpio_put(row_pins[row], 1); // desativa a linha
                 return key_map[row][col];   // retorna a tecla correspondente
+
             }
         }
 
@@ -162,6 +166,10 @@ void animation_key2()
                 if (abs(i - center) == layer)
                 {
                     set_color(i, 255, 0, 0); // define a cor vermelha para os LEDs da camada
+                    if(read_key('A')){
+                        cycles=0;
+                        clear_all(); // apaga todos os LEDs ao final de cada ciclo
+                        }
                 }
             }
 
@@ -174,8 +182,44 @@ void animation_key2()
         sleep_ms(500); // pausa antes de repetir o ciclo
 
         cycles--;
-    }
+  }
 }
+
+
+// esta animacao começa no centro dos leds
+// se expande para as bordas
+void animation_key5()
+{
+    int cycles = 3; // numero de ciclos da animação
+    while (cycles > 0)
+    {
+        // inicializa os LEDs em camadas, do centro para as bordas
+        for (int colum = 0; colum < 5 ; colum++)
+        {
+            clear_all(); // apaga todos os LEDs
+
+            // percorre todos os leds
+            for (int i = 0; i <=NUM_LEDS; i++)
+            {
+                // se o resto da divisão de i pelo numero da coluna + 2 fpr 0, o led acende
+                if (i % (colum+2) == 0)
+                {
+                    set_color(i, 0, 0, 255); // define a cor verde para os LEDs ativos
+                    
+                }
+                
+            }
+            send_buffer();
+            sleep_ms(2000);
+        }
+
+        clear_all(); // apaga todos os LEDs ao final de cada ciclo
+        send_buffer();
+        sleep_ms(500); // pausa antes de repetir o ciclo
+
+        cycles--;
+    }
+} 
 
 // altera os LEDs baseado na tecla pressionada
 void handle_key(char key)
@@ -184,8 +228,9 @@ void handle_key(char key)
     switch (key)
     {
     case 'A':
-        printf("desligar LEDs\n");
-        clear_all();
+        clear_all(); // apaga todos os LEDs ao final de cada ciclo
+        send_buffer();
+        cycles=0;
         break;
     case 'B':
         printf("ligar LEDs azuis\n");
@@ -224,6 +269,10 @@ void handle_key(char key)
         printf("animação lilás\n");
         simple_animation();
         break;
+    case '5':
+        printf("animação lilás\n");
+        animation_key5();
+        break;
     default:
         break;
     }
@@ -238,7 +287,6 @@ int main()
     initialize_leds(LED_MATRIX_PIN);
 
     printf("sistema iniciado\n");
-
     while (true)
     {
         char key = read_key(); // lê a tecla pressionada

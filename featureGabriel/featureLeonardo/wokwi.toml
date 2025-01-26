@@ -1,0 +1,6 @@
+[wokwi]
+version = 1
+firmware = 'build/Animation-BitDogLab.uf2'
+elf = 'build/Animation-BitDogLab.elf'
+gdbServerPort=3333
+rfc2217ServerPort = 4000
