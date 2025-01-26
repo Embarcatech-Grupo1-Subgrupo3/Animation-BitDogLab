@@ -46,7 +46,9 @@ pico_enable_stdio_usb(Animation-BitDogLab 0)
 
 # Add the standard library to the build
 target_link_libraries(Animation-BitDogLab
-        pico_stdlib)
+        pico_stdlib
+        hardware_pio
+        hardware_pwm)
 
 # Add the standard include files to the build
 target_include_directories(Animation-BitDogLab PRIVATE
