@@ -141,6 +141,42 @@ void simple_animation()
     send_buffer();
 }
 
+// esta animacao começa no centro dos leds
+// subdivide-se em dois, e seguem seu caminho até as extremidades, afastando um do outro
+void animation_key2()
+{
+    int cycles = 3; // numero de ciclos da animação
+    while (cycles > 0)
+    {
+        int center = NUM_LEDS / 2; // calcula o índice do LED central
+
+        // inicializa os LEDs em camadas, do centro para as bordas
+        for (int layer = 0; layer <= NUM_LEDS / 2; layer++)
+        {
+            clear_all(); // apaga todos os LEDs
+
+            // acende os LEDs da camada atual
+            for (int i = 0; i < NUM_LEDS; i++)
+            {
+                // verifica se o LED está na camada atual
+                if (abs(i - center) == layer)
+                {
+                    set_color(i, 255, 0, 0); // define a cor vermelha para os LEDs da camada
+                }
+            }
+
+            send_buffer();
+            sleep_ms(200);
+        }
+
+        clear_all(); // apaga todos os LEDs ao final de cada ciclo
+        send_buffer();
+        sleep_ms(500); // pausa antes de repetir o ciclo
+
+        cycles--;
+    }
+}
+
 // altera os LEDs baseado na tecla pressionada
 void handle_key(char key)
 {
@@ -181,12 +217,8 @@ void handle_key(char key)
         }
         break;
     case '2':
-        printf("LEDs amarelos em pares\n");
-        for (int i = 0; i < NUM_LEDS; i++)
-        {
-            if (i % 2 == 0)
-                set_color(i, 255, 255, 0);
-        }
+        printf("Animação: Afastamento\n");
+        animation_key2();
         break;
     case '3':
         printf("animação lilás\n");
