@@ -141,6 +141,8 @@ void simple_animation()
     send_buffer();
 }
 
+// esta animacao começa no centro dos leds
+// subdivide-se em dois, e seguem seu caminho até as extremidades, afastando um do outro
 void animation_key2()
 {
     int cycles = 3; // numero de ciclos da animação
