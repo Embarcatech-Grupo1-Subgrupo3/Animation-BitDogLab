@@ -9,10 +9,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Wokwi GDB",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/sketch.hex",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
+            "miDebuggerServerAddress": "localhost:3333"
+        },
+        {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "c:/Users/ferre/OneDrive/Área de Trabalho/Animation-BitDogLab/.pio/build/pico/firmware.elf",
+            "executable": "c:/Users/ferre/Downloads/Animation-BitDogLab/.pio/build/pico/firmware.elf",
             "projectEnvName": "pico",
             "toolchainBinDir": "C:/Users/ferre/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
@@ -26,7 +36,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "c:/Users/ferre/OneDrive/Área de Trabalho/Animation-BitDogLab/.pio/build/pico/firmware.elf",
+            "executable": "c:/Users/ferre/Downloads/Animation-BitDogLab/.pio/build/pico/firmware.elf",
             "projectEnvName": "pico",
             "toolchainBinDir": "C:/Users/ferre/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
@@ -36,22 +46,12 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "c:/Users/ferre/OneDrive/Área de Trabalho/Animation-BitDogLab/.pio/build/pico/firmware.elf",
+            "executable": "c:/Users/ferre/Downloads/Animation-BitDogLab/.pio/build/pico/firmware.elf",
             "projectEnvName": "pico",
             "toolchainBinDir": "C:/Users/ferre/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "svdPath": "C:/Users/ferre/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
             "loadMode": "manual"
-        },
-        {
-            "name": "Wokwi GDB",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/sketch.hex",
-            "cwd": "${workspaceFolder}",
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
-            "miDebuggerServerAddress": "localhost:3333"
-          }
+        }
     ]
 }

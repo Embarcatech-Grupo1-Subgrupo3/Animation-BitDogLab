@@ -1,6 +1,6 @@
 [wokwi]
 version = 1
-firmware = 'build/bs2_default.uf2'
-elf = 'build/bs2_default.elf'
+firmware = 'build/Animation-BitDogLab.uf2'
+elf = 'build/Animation-BitDogLab.elf'
 gdbServerPort=3333
 rfc2217ServerPort = 4000

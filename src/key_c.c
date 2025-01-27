@@ -1,6 +1,5 @@
-// key_c.c
-#include "key_c.h"
-#include "leds.h"
+#include "../include/key_c.h"
+#include "../include/leds.h"
 #include <stdio.h>
 
 #define RED_INTENSITY 204 // 80% da luminosidade máxima (255 * 0.8)
