@@ -1,6 +1,9 @@
 [wokwi]
 version = 1
-firmware = 'build/bs2_default.uf2'
-elf = 'build/bs2_default.elf'
-gdbServerPort=3333
-rfc2217ServerPort = 4000
+firmware = 'build/neopixel_pio.hex'
+elf = 'build/neopixel_pio.elf'
+
+name = "Projeto Matriz de LEDs"
+description = "Controlando LEDs usando Raspberry Pi Pico W"
+microcontroller = "pico"
+
