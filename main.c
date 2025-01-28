@@ -1,31 +1,14 @@
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
-#include "include/leds.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "pico/stdlib.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
 #include "hardware/timer.h"
 #include "pico/binary_info.h"
-#include "play_audio.h"
-#include "matrix_led.h"
-#include "letras.h"
-
-// #include "key_a.h"
-// #include "key_b.h"
-// #include "include/key_c.h"
-// #include "key_d.h"
-// #include "key_0.h"
-// #include "key_1.h"
-// #include "key_2.h"
-// #include "key_3.h"
-// #include "key_4.h"
-// #include "key_5.h"
-// #include "key_6.h"
-// #include "key_7.h"
-// #include "key_8.h"
-// #include "key_9.h"
+#include "src/play_audio.h"
+#include "src/matrix_led.h"
+#include "src/letras.h"
 
 // configuração do teclado
 #define ROWS 4
@@ -86,55 +69,7 @@ char read_key()
 #define LED_COUNT 25
 #define LED_PIN 7
 
-int matriz1[5][5][3] = {
-    {{255, 0, 0}, {255, 0, 0}, {255, 0, 0}, {255, 0, 0}, {255, 0, 0}},
-    {{0, 0, 0}, {0, 0, 0}, {255, 0, 0}, {0, 0, 0}, {0, 0, 0}},
-    {{0, 0, 0}, {0, 0, 0}, {255, 0, 0}, {0, 0, 0}, {0, 0, 0}},
-    {{255, 0, 0}, {0, 0, 0}, {255, 0, 0}, {0, 0, 0}, {0, 0, 0}},
-    {{255, 0, 0}, {255, 0, 0}, {255, 0, 0}, {0, 0, 0}, {0, 0, 0}}};
-
-int matriz2[5][5][3] = {
-    {{255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}}};
-
-int matriz3[5][5][3] = {
-    {{0, 0, 0}, {10, 7, 193}, {10, 7, 193}, {10, 7, 193}, {0, 0, 0}},
-    {{10, 7, 193}, {10, 7, 193}, {0, 0, 0}, {10, 7, 193}, {10, 7, 193}},
-    {{10, 7, 193}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {10, 7, 193}},
-    {{10, 7, 193}, {10, 7, 193}, {10, 7, 193}, {10, 7, 193}, {10, 7, 193}},
-    {{10, 7, 193}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {10, 7, 193}}};
-
-int matriz4[5][5][3] = {
-    {{255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {255, 236, 0}},
-    {{255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}, {255, 236, 0}}};
-
-void update_matrices(int state)
-{
-    npClear();
-    switch (state)
-    {
-    case 0:
-        updateMatrix(matriz1);
-        break;
-    case 1:
-        updateMatrix(matriz2);
-        break;
-    case 2:
-        updateMatrix(matriz3);
-        break;
-    case 3:
-        updateMatrix(matriz4);
-        break;
-    }
-}
-
-void escrever_leonardo(int state)
+void handle_key2(int state)
 {
     npClear();
     switch (state)
@@ -209,7 +144,7 @@ int main()
         case '2':
             for (int state = 0; state <= 7; state++)
             {
-                escrever_leonardo(state);
+                handle_key2(state);
                 sleep_ms(1000);
             }
             npClear();
