@@ -1,3 +1,6 @@
+#ifndef HANDLE_KEY2
+#define HANDLE_KEY2
+
 #include "matrix_led.h"
 
 int LETRA_L[5][5][3] = {
@@ -80,3 +83,5 @@ void handle_key2(int state)
         break;
     }
 }
+
+#endif
