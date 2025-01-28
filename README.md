@@ -70,7 +70,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 - Abra o terminal de comando Git Bash no VsCode
 - Clone o repositório no seu diretório:
 ```
-$ git clone https://github.com/Embarcatech-Grupo1-Subgrupo3/U4_Microcontroladores_GPIO_ATIVIDADE_2.git
+$ git clone 
 ```
 - Abra a pasta no Vscode
 - Clique no Arquivo [diagram.json]() e aperte no botão play
