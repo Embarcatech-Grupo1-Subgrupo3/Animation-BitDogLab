@@ -14,6 +14,7 @@
 #include "src/handlekey_B.h"
 #include "src/handlekey_C.h"
 #include "src/handlekey_D.h"
+#include "src/handlekey_#.h"
 #include "src/handle_key2.h"
 
 // configuração do teclado
@@ -84,6 +85,10 @@ int main()
     initialize_keyboard();
 
     float brightnessScale = 0.05; // 5% de brilho
+    float brightnessScale_20 = 0.2; // 20% de brilho
+    float brightnessScale_50 = 0.5; //50% de brilho
+    float brightnessScale_80 = 0.8; //80% de brilho
+    float brightnessScale_100 = 1.0; //100% de brilho
 
     applyBrightnessToMatrix(LETRA_L, brightnessScale);
     applyBrightnessToMatrix(LETRA_E, brightnessScale);
@@ -97,6 +102,10 @@ int main()
     applyBrightnessToMatrix(frame_1_3, brightnessScale);
     applyBrightnessToMatrix(frame_1_4, brightnessScale);
     applyBrightnessToMatrix(frame_1_5, brightnessScale);
+    applyBrightnessToMatrix(tecla_B, brightnessScale_100);
+    applyBrightnessToMatrix(tecla_C, brightnessScale_80);
+    applyBrightnessToMatrix(tecla_D, brightnessScale_50);
+    applyBrightnessToMatrix(tecla_, brightnessScale_20);
 
     while (true)
     {
@@ -115,6 +124,9 @@ int main()
             break;
         case 'D':
             handle_keyD();
+            break;
+        case '#':
+            handle_key();
             break;
         case '1': 
             // Ação para a tecla 1
