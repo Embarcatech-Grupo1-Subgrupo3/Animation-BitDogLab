@@ -1,4 +1,8 @@
-// Letras.
+#ifndef HANDLE_KEY2
+#define HANDLE_KEY2
+
+#include "matrix_led.h"
+
 int LETRA_L[5][5][3] = {
     {{0, 0, 0}, {11, 17, 238}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
     {{0, 0, 0}, {11, 17, 238}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
@@ -47,3 +51,37 @@ int LETRA_D[5][5][3] = {
     {{0, 0, 0}, {0, 0, 0}, {11, 17, 238}, {0, 0, 0}, {11, 17, 238}},
     {{0, 0, 0}, {0, 0, 0}, {11, 17, 238}, {0, 0, 0}, {11, 17, 238}},
     {{0, 0, 0}, {11, 17, 238}, {11, 17, 238}, {11, 17, 238}, {11, 17, 238}}};
+
+void handle_key2(int state)
+{
+    npClear();
+    switch (state)
+    {
+    case 0:
+        updateMatrix(LETRA_L);
+        break;
+    case 1:
+        updateMatrix(LETRA_E);
+        break;
+    case 2:
+        updateMatrix(LETRA_O);
+        break;
+    case 3:
+        updateMatrix(LETRA_N);
+        break;
+    case 4:
+        updateMatrix(LETRA_A);
+        break;
+    case 5:
+        updateMatrix(LETRA_R);
+        break;
+    case 6:
+        updateMatrix(LETRA_D);
+        break;
+    case 7:
+        updateMatrix(LETRA_O);
+        break;
+    }
+}
+
+#endif
