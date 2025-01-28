@@ -16,6 +16,7 @@
 #include "src/handlekey_D.h"
 #include "src/handlekey_#.h"
 #include "src/handle_key2.h"
+#include "src/handle_key9.h"
 
 // configuração do teclado
 #define ROWS 4
@@ -173,6 +174,14 @@ int main()
             // Ação para a tecla 8
             break;
         case '9':
+            // Ação para a tecla 9
+            for (int state = 0; state <= 12; state++)
+            {
+                handle_key9(state);
+                sleep_ms(1000);
+            }
+            npClear();
+            npWrite();
             // Ação para a tecla 9
             break;
         default:
