@@ -8,7 +8,7 @@
 #include "pico/binary_info.h"
 #include "src/play_audio.h"
 #include "src/matrix_led.h"
-#include "src/letras.h"
+#include "src/handle_key2.h"
 
 // configuração do teclado
 #define ROWS 4
@@ -68,38 +68,6 @@ char read_key()
 
 #define LED_COUNT 25
 #define LED_PIN 7
-
-void handle_key2(int state)
-{
-    npClear();
-    switch (state)
-    {
-    case 0:
-        updateMatrix(LETRA_L);
-        break;
-    case 1:
-        updateMatrix(LETRA_E);
-        break;
-    case 2:
-        updateMatrix(LETRA_O);
-        break;
-    case 3:
-        updateMatrix(LETRA_N);
-        break;
-    case 4:
-        updateMatrix(LETRA_A);
-        break;
-    case 5:
-        updateMatrix(LETRA_R);
-        break;
-    case 6:
-        updateMatrix(LETRA_D);
-        break;
-    case 7:
-        updateMatrix(LETRA_O);
-        break;
-    }
-}
 
 int main()
 {
