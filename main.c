@@ -4,20 +4,27 @@
 #include "include/keyboard.h"
 #include "include/key_c.h"
 
-int main() {
+int main()
+{
     stdio_init_all();
     initialize_leds();
     keyboard_init();
-    
+
     printf("Sistema iniciado\n");
 
-    while (true) {
+    while (true)
+    {
         char key = keyboard_read();
-        if (key) {
-            switch (key) {
-                case 'C': handle_key_c(); break;
-                default:
-                    printf("Tecla %c não atribuída.\n", key); break;
+        if (key)
+        {
+            switch (key)
+            {
+            case 'C':
+                handle_key_c();
+                break;
+            default:
+                printf("Tecla %c não atribuída.\n", key);
+                break;
             }
         }
         sleep_ms(100);
