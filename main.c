@@ -9,6 +9,12 @@
 #include "src/play_audio.h"
 #include "src/matrix_led.h"
 #include "src/letras.h"
+#include "src/handlekey_1.h"
+#include "src/handlekey_5.h"
+#include "src/handlekey_A.h"
+#include "src/handlekey_B.h"
+#include "src/handlekey_C.h"
+#include "src/handlekey_D.h"
 
 // configuração do teclado
 #define ROWS 4
@@ -118,6 +124,11 @@ int main()
     applyBrightnessToMatrix(LETRA_A, brightnessScale);
     applyBrightnessToMatrix(LETRA_R, brightnessScale);
     applyBrightnessToMatrix(LETRA_D, brightnessScale);
+    applyBrightnessToMatrix(frame_1_1, brightnessScale);
+    applyBrightnessToMatrix(frame_1_2, brightnessScale);
+    applyBrightnessToMatrix(frame_1_3, brightnessScale);
+    applyBrightnessToMatrix(frame_1_4, brightnessScale);
+    applyBrightnessToMatrix(frame_1_5, brightnessScale);
 
     while (true)
     {
@@ -126,20 +137,26 @@ int main()
         switch (key)
         {
         case 'A':
-            npClear();
-            npWrite();
+            handle_keyA();
             break;
         case 'B':
-            // Ação para a tecla B
+            handle_keyB();
             break;
         case 'C':
-            // Ação para a tecla C
+            handle_keyC();
             break;
         case 'D':
-            // Ação para a tecla D
+            handle_keyD();
             break;
-        case '1':
+        case '1': 
             // Ação para a tecla 1
+            for (int state = 0; state <= 4; state++)
+            {
+                handle_key1(state);
+                sleep_ms(1000);
+            }
+            npClear();
+            npWrite();
             break;
         case '2':
             for (int state = 0; state <= 7; state++)
@@ -158,6 +175,13 @@ int main()
             break;
         case '5':
             // Ação para a tecla 5
+             for (int state = 0; state <= 4; state++)
+            {
+                handle_key5(state);
+                sleep_ms(1000);
+            }
+            npClear();
+            npWrite();
             break;
         case '6':
             // Ação para a tecla 6
