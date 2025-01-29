@@ -114,3 +114,5 @@ void handle_key7(int state)
         break;
     }
 }
+
+#endif
