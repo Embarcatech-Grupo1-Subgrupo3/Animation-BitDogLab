@@ -32,7 +32,7 @@ Tabela de conteúdos
 
 ## 💻 Sobre o projeto
 
-
+O projeto de Animações de Led em Linguagem C, é um sistema teste desenvolvido para fixação e experimentação do conteúdo proposto pelo curso.
 
 Projeto desenvolvido durante o curso de Formação Básica em Software Embarcado oferecido pela [Embarcatech](https://embarcatech.softex.br).
 A Formação Básica em Software Embarcado da Embarcatech é um programa de capacitação profissional técnica destinado a alunos de nível superior e técnico em Tecnologias da Informação e Comunicação (TIC) e áreas correlatas, focado em tecnologias de Sistemas Embarcados.
@@ -179,16 +179,20 @@ elf = 'build/neopixel_pio.elf'
 
 ## 🎥 Imagens do Projeto
 
-### 💿 Projeto na extensão Wokwi simulator no Visual Studio
-<p align="center"><img width="700" height="400" src=""></p>
+### 💿 Diagrama Visual do Projeto
+<p align="center"><img width="700" height="400" src="https://github.com/Embarcatech-Grupo1-Subgrupo3/Animation-BitDogLab/blob/main/assets/Captura%20de%20Tela%20(41).png"></p>
 
-### 💿 Video do projeto
-
-
+### 💿 Video do Projeto na Extensão Wokwi
 
 
 
-- Dowload HD video completo:
+https://github.com/user-attachments/assets/1cb5ff3f-3bc1-4b1f-a468-651a5e83f5a7
+
+
+
+
+
+- Dowload HD video completo: https://github.com/Embarcatech-Grupo1-Subgrupo3/Animation-BitDogLab/blob/main/assets/Video_Demonstrativo_Atividade.mp4
 
 ---
 
