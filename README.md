@@ -18,7 +18,6 @@ Tabela de conteúdos
    * [Layout Repositorio Github](#-layout-repositorio-github)
    * [Funcionalidades](#-Funcionalidades)
    * [Como executar o projeto](#-como-executar-o-projeto)
-     * [Pré-requisitos](#-pré-requisitos)
    * [Imagens do Projeto](#-imagens-do-projeto)
      * [Imagem](#-projeto-na-extensão-wokwi-simulator-no-visual-studio)
      * [Vídeo](#-video-do-projeto)
@@ -41,12 +40,73 @@ A Formação Básica em Software Embarcado da Embarcatech é um programa de capa
 ---
 
 ## 🎨 Layout Repositorio Github
+<i>
+Animation-BitDogLab
 
+- .vscode/&emsp;&emsp;&emsp;&emsp;# Arquivos .json
+  - cmake-kits.json
+  - extensions.json
+  - launch.json
+  - settings.json
+
+- assets/&emsp;&emsp;&emsp;&emsp;# Midias do Projeto
+
+- lib/&emsp;&emsp;&emsp;&emsp;# biblioteca do projeto
+
+- src/&emsp;&emsp;&emsp;&emsp;# códigos do projeto
+  - handle_key2.h
+  - handle_key3.h
+  - handlekey_#.h
+  - handlekey_1.h
+  - handlekey_4.h
+  - handlekey_5.h
+  - handlekey_6.h
+  - handlekey_7.h
+  - handlekey_8.h
+  - handlekey_A.h
+  - handlekey_B.h
+  - handlekey_C.h
+  - handlekey_D.h
+  - matrix_led.c
+  - matrix_led.h
+  - notes.h
+  - play_audio.c
+  - play_audio.h
+
+- test/&emsp;&emsp;&emsp;&emsp;# site de testes
+
+- .gitignore
+
+- CMakeLists.txt
+
+- LICENSE
+
+- README.md
+
+- diagram.json&emsp;&emsp;&emsp;&emsp;# Arquivo Wokwi do BitDogLab
+
+- main.c&emsp;&emsp;&emsp;&emsp;# Código principal do projeto
+
+- pico_sdk_import.cmake
+
+- platformio.ini
+
+- wokwi.toml
+
+- ws2818b.pio
+</i>
 
 ---
 
 ## ⚙️ Funcionalidades
-
+- Teclado Matricial4X4
+- Teclas Funcionais:
+  - 1 à 8 interação com animações
+  - A desliga leds
+  - B liga LEDs na cor Azul
+  - C liga LEDs na cor Vermelha
+  - D liga LEDs na cor Verde
+  - Botão # liga LEDs na cor Branca
 
 ---
 
@@ -62,46 +122,57 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
   - [GCC compilador](https://gcc.gnu.org)
   - [Biblioteca Pico-Sdk](https://github.com/raspberrypi/pico-sdk.git) (OBS: Necessário caso queira modificar o projeto)
 
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) e usar o simulador web [Wokwi](https://wokwi.com) (ou a extensão do Vscode [Wokwi Simulator](https://marketplace.visualstudio.com/items?itemName=Wokwi.wokwi-vscode))
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) com a extensão [Raspberry](https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico)  e usar o simulador web [Wokwi](https://wokwi.com) (ou a extensão do Vscode [Wokwi Simulator](https://marketplace.visualstudio.com/items?itemName=Wokwi.wokwi-vscode))
 
-#### 🎲 Rodando as Animações no Visual Studio
+### 🎲 Dowload do Projeto
 
-- Abra o Visual Studio, crie ou selecione uma pasta
-- Abra o terminal de comando Git Bash no VsCode
-- Clone o repositório no seu diretório:
+#### Dowload do Projeto no Desktop
+- Opção 1:
+  - Abra o terminal de comando Git Bash 
+  - Clone o repositório do GitHub com o comando:
 ```
-$ git clone 
+$ git clone https://github.com/Embarcatech-Grupo1-Subgrupo3/Animation-BitDogLab.git
 ```
-- Abra a pasta no Vscode
-- Clique no Arquivo [diagram.json]() e aperte no botão play
-```
-OBS:
-# Para rodar o Wokwi simualator é necessario uma licensa.
-# Digite na aba pesquisar do seu Visual Studio o seguinte comando:
-  >Wokwi: Request a New License
-# faça login e gere uma nova licença
-```
-
-#### 🎲 Rodando a Animação no Wokwi Web
-
-- Baixe o repositório do Github
-- Descompacte o arquivo .zip
-- Entre no navegador e digite [Wokwi.com](https://gcc.gnu.org)
-- Faça Upload dos Arquivos [diagram.json]()
-- Faça upload do aquivo main [main.c]()
+- Opção 2:
+  - No repósitorio [Animation-BitDogLab](https://github.com/Embarcatech-Grupo1-Subgrupo3/Animation-BitDogLab) aperte o Botão <i><>code</i>
+  - Aperte a opção <i>Dowload ZIP</i>
 
 
-#### 🎲 Rodando as Animações na placa BitdogLab
+### 🎲 Rodando a Animação no Wokwi
 
-- Abra o Visual Studio, crie ou selecione uma pasta
-- Abra o terminal de comando Git Bash no VsCode
-- Clone o repositório no seu diretório:
+#### Wokwi Web
+- Entre no navegador e digite [Wokwi.com]()
+- Faça Upload dos Arquivos <i>diagram.json</i>
+- Faça upload do aquivo main <i>main.c</i> e da pasta <i>src/</i>
+
+#### Extensão Wokwi
+- Abra o Visual Studio
+- Na aba da extensão [Raspberry Pi Pico](https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico), aperte para Importar o projeto
+- Compile o projeto
+- crie um arquivo (caso não tenha no projeto) <i>wokwi.toml</i> e digite o código:
 ```
-$ git clone
+[wokwi]
+version = 1
+firmware = 'build/neopixel_pio.hex'
+elf = 'build/neopixel_pio.elf'
 ```
-- Conecte Um cabo USB tipo A na placa para o seu Dispositivo
-- Aperte os botões BOOTSEL e RESET na sua placa ao mesmo tempo para abrir o Armazenamento
-- Copie o arquivo []() para o armazenamento da placa
+- Abra o arquivo <i>diagram.json</i>
+
+
+### 🎲 Rodando as Animações na placa BitdogLab
+
+#### Placa BitDogLab
+- Através de um cabo USB conecte a placa ao seu Disposito
+- Aperte o Botão Bootsel e Reset 
+
+#### VsCode Studio
+- Abra o Visual Studio
+- Na aba da extensão [Raspberry Pi Pico](https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico), aperte para Importar o projeto
+- Compile o projeto
+- Entre na pasta <i>build/</i>
+- Cole o arquivo <i>neopixel_pio.uf2</i> no armazenamento placa BitDog
+<br>
+<strong>Obs:É necessário uma Teclado Matricial 4X4 para interagir com a placa e suas animções</strong>
 
 
 ---
@@ -150,12 +221,9 @@ Mentor: MANOEL MESSIAS DA SILVA JUNIOR
     <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/113399464?v=4" width="100px;"/><br/><a href="https://github.com/Leo-Luz-code">Leornado R. Luz<a/><br/><br/><a href="https://github.com/ferreiramateusalencar/Conversor-de-Unidades-C" title="Integrante">🌐</a></td>
     <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/86336670?v=4" width="100px;"/><br/><a href="https://github.com/ferreiramateusalencar">Mateus A. Ferreira<a/><br/><br/><a href="https://github.com/ferreiramateusalencar/Conversor-de-Unidades-C" title="Integrante">🌐</a></td>
     <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/112970376?v=4" width="100px;"/><br/><a href="https://github.com/Dyeorn">João Pedro Jacó<a/><br/><br/><a href="https://github.com/ferreiramateusalencar/Conversor-de-Unidades-C" title="Integrante">🌐</a></td>
-  <tr>
     <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/89869851?v=4" width="100px;"/><br/><a href="https://github.com/GabrielFOV">Gabriel F. O. Viana<a/><br/><br/><a href="https://github.com/ferreiramateusalencar/Conversor-de-Unidades-C" title="Integrante">🌐</a></td>
-     <td align="center"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/64041493?v=4" width="100px;"/><br/><a href="https://github.com/jonathanmachado141">Jonathan M. da Silva<a/><br/><br/><a href="https://github.com/ferreiramateusalencar/Conversor-de-Unidades-C" title="Integrante">🌐</a></td>
   </tr>
 </table>
-
       
 ---
 
