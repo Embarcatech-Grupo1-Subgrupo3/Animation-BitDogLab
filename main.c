@@ -89,11 +89,11 @@ int main()
     setup_audio();
     initialize_keyboard();
 
-    float brightnessScale = 0.05; // 5% de brilho
-    float brightnessScale_20 = 0.2; // 20% de brilho
-    float brightnessScale_50 = 0.5; //50% de brilho
-    float brightnessScale_80 = 0.8; //80% de brilho
-    float brightnessScale_100 = 1.0; //100% de brilho
+    float brightnessScale = 0.05;    // 5% de brilho
+    float brightnessScale_20 = 0.2;  // 20% de brilho
+    float brightnessScale_50 = 0.5;  // 50% de brilho
+    float brightnessScale_80 = 0.8;  // 80% de brilho
+    float brightnessScale_100 = 1.0; // 100% de brilho
 
     applyBrightnessToMatrix(LETRA_L, brightnessScale);
     applyBrightnessToMatrix(LETRA_E, brightnessScale);
@@ -133,7 +133,7 @@ int main()
         case '#':
             handle_key();
             break;
-        case '1': 
+        case '1':
             // Ação para a tecla 1
             for (int state = 0; state <= 4; state++)
             {
@@ -144,7 +144,8 @@ int main()
             npWrite();
             break;
         case '2':
-        // Ação para a tecla 2
+            // Ação para a tecla 2
+            main_audio();
             for (int state = 0; state <= 7; state++)
             {
                 handle_key2(state);
@@ -168,7 +169,7 @@ int main()
             break;
         case '5':
             // Ação para a tecla 5
-             for (int state = 0; state <= 4; state++)
+            for (int state = 0; state <= 4; state++)
             {
                 handle_key5(state);
                 sleep_ms(1000);
@@ -224,6 +225,5 @@ int main()
         sleep_ms(100);
     }
 
-    // main_audio(); // Chame a função principal de áudio continuamente
     return 0;
 }
