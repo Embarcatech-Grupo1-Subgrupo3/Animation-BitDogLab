@@ -190,7 +190,7 @@ int main()
             // Ação para a tecla 7
             for (int state = 0; state <= 9; state++)
             {
-                handle_key6(state);
+                handle_key7(state);
                 sleep_ms(500);
             }
             npClear();
