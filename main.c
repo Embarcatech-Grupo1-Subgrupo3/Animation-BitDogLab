@@ -9,18 +9,18 @@
 #include "src/play_audio.h"
 #include "src/matrix_led.h"
 #include "src/handlekey_1.h"
+#include "src/handle_key2.h"
+#include "src/handle_key3.h"
+#include "src/handlekey_4.h"
 #include "src/handlekey_5.h"
+#include "src/handlekey_6.h"
+#include "src/handlekey_7.h"
+#include "src/handlekey_8.h"
 #include "src/handlekey_A.h"
 #include "src/handlekey_B.h"
 #include "src/handlekey_C.h"
 #include "src/handlekey_D.h"
 #include "src/handlekey_#.h"
-#include "src/handle_key2.h"
-#include "src/handle_key3.h"
-#include "src/handlekey_9.h"
-#include "src/handlekey_6.h"
-#include "src/handlekey_8.h"
-#include "src/handlekey_7.h"
 
 // configuração do teclado
 #define ROWS 4
@@ -165,6 +165,13 @@ int main()
             break;
         case '4':
             // Ação para a tecla 4
+            for (int state = 0; state <= 12; state++)
+            {
+                handle_key4(state);
+                sleep_ms(1000);
+            }
+            npClear();
+            npWrite();
             break;
         case '5':
             // Ação para a tecla 5
@@ -207,14 +214,6 @@ int main()
             npWrite();
             break;
         case '9':
-            // Ação para a tecla 9
-            for (int state = 0; state <= 12; state++)
-            {
-                handle_key9(state);
-                sleep_ms(1000);
-            }
-            npClear();
-            npWrite();
             // Ação para a tecla 9
             break;
         default:
