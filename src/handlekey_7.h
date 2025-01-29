@@ -77,7 +77,7 @@ int rgb10[5][5][3] = {
     {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
     {{0, 255, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 255, 0}}};
 
-void handle_key8(int state)
+void handle_key7(int state)
 {
     npClear();
     switch (state)
