@@ -16,6 +16,7 @@
 #include "src/handlekey_D.h"
 #include "src/handlekey_#.h"
 #include "src/handle_key2.h"
+#include "src/handle_key3.h"
 #include "src/handlekey_9.h"
 #include "src/handlekey_6.h"
 
@@ -141,6 +142,7 @@ int main()
             npWrite();
             break;
         case '2':
+        // Ação para a tecla 2
             for (int state = 0; state <= 7; state++)
             {
                 handle_key2(state);
@@ -151,6 +153,13 @@ int main()
             break;
         case '3':
             // Ação para a tecla 3
+            for (int state = 0; state <= 6; state++)
+            {
+                handle_key3(state);
+                sleep_ms(1000);
+            }
+            npClear();
+            npWrite();
             break;
         case '4':
             // Ação para a tecla 4
