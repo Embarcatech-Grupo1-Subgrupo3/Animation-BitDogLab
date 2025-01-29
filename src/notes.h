@@ -19,7 +19,7 @@
 #define NOTE_AS3 33498
 #define NOTE_B4 16952
 
-#define SONG_B_LENGTH 129
+#define SONG_B_LENGTH 44
 
 int melody[] = {
     NOTE_G4, NOTE_C4, NOTE_DS4, NOTE_F4, NOTE_G4, NOTE_C4, NOTE_DS4, NOTE_F4,
