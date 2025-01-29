@@ -179,16 +179,20 @@ elf = 'build/neopixel_pio.elf'
 
 ## 🎥 Imagens do Projeto
 
-### 💿 Projeto na extensão Wokwi simulator no Visual Studio
-<p align="center"><img width="700" height="400" src=""></p>
+### 💿 Diagrama Visual do Projeto
+<p align="center"><img width="700" height="400" src="https://github.com/Embarcatech-Grupo1-Subgrupo3/Animation-BitDogLab/blob/main/assets/Captura%20de%20Tela%20(41).png"></p>
 
-### 💿 Video do projeto
-
-
+### 💿 Video do Projeto na Extensão Wokwi
 
 
 
-- Dowload HD video completo:
+https://github.com/user-attachments/assets/1cb5ff3f-3bc1-4b1f-a468-651a5e83f5a7
+
+
+
+
+
+- Dowload HD video completo: https://github.com/Embarcatech-Grupo1-Subgrupo3/Animation-BitDogLab/blob/main/assets/Video_Demonstrativo_Atividade.mp4
 
 ---
 
